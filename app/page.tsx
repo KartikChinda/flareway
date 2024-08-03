@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Clock from "./components/Clock";
 import Features from "./components/Features";
+import WallClock from "./components/WallClock";
 
 export default function Home() {
   return (
@@ -15,7 +15,7 @@ export default function Home() {
             <Hero />
           </div>
           <div className="w-[40%] flex justify-center items-center">
-            <Clock />
+            <WallClock />
           </div>
         </div>
 
