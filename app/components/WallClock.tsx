@@ -9,7 +9,7 @@ const WallClock = () => {
     const [time, setTime] = useState(new Date());
 
     useEffect(() => {
-        const interval = setInterval(() => setTime(new Date()), 10);
+        const interval = setInterval(() => setTime(new Date()), 30);
 
         return () => {
             clearInterval(interval);
@@ -17,7 +17,7 @@ const WallClock = () => {
     }, []);
 
     return (
-        <div className='w-full h-full flex justify-center items-center border-2'>
+        <div className='w-full h-full flex justify-center items-center'>
             <Clock value={time} size={350} minuteMarksLength={0} hourMarksLength={0} useMillisecondPrecision={true} />
         </div>
     )

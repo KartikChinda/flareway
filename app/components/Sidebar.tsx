@@ -11,7 +11,7 @@ const Sidebar = () => {
     const pathName = usePathname();
 
     return (
-        <section className='sticky bg-blackish left-0 top-0 flex flex-col h-[120vh] w-fit justify-between bg-palette-2 p-6 pt-28 hidden text-palette-4  md:block md:w-[30%]'>
+        <section className='sticky bg-blackish left-0 top-0 flex flex-col h-[120vh] w-fit justify-between bg-palette-2 p-6 pt-28 hidden text-palette-4  md:block md:w-[25%]'>
             <div className='flex flex-col gap-6'>
                 {sidebarLinks.map((link) => {
 
