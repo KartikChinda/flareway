@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-
+import FileBase64 from 'react-file-base64';
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 
@@ -8,9 +8,16 @@ const page = () => {
 
     const router = useRouter();
     const [post, setpost] = useState({
-        title: "",
-        description: "",
-        createdAt: new Date(),
+        name: "",
+        address: "",
+        currentGrade: "",
+        fieldOfStudy: "",
+        academicAchievements: "",
+        householdIncome: "",
+        needFinancialAid: "",
+        additionalInfo: "",
+        profilePicture: "",
+        transcripts: "",
     })
 
     const handlePostSubmit = async (e: any) => {
@@ -20,8 +27,16 @@ const page = () => {
             const response = await fetch("api/posts/create", {
                 method: "POST",
                 body: JSON.stringify({
-                    title: post.title,
-                    description: post.description,
+                    name: post.name,
+                    address: post.address,
+                    currentGrade: post.currentGrade,
+                    fieldOfStudy: post.fieldOfStudy,
+                    academicAchievements: post.academicAchievements,
+                    householdIncome: post.householdIncome,
+                    needFinancialAid: post.needFinancialAid,
+                    additionalInfo: post.additionalInfo,
+                    profilePicture: post.profilePicture,
+                    transcripts: post.transcripts,
                 })
             })
 
@@ -38,22 +53,11 @@ const page = () => {
 
 
 
-    const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setpost({ ...post, title: e.target.value })
-    }
 
-    const handleContentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setpost({ ...post, description: e.target.value })
-    }
 
     const handleCancel = () => {
         router.push("/");
     }
-
-
-    const currDate = new Date();
-
-
 
     return (
         <div>
@@ -73,60 +77,60 @@ const page = () => {
 
                     <label htmlFor="title" className="flex flex-col font-semibold gap-1" >
                         Name
-                        <input id="title" placeholder="Enter your name" className="rounded-md p-2 font-normal border-2 border-palette-4" onChange={(e) => handleTitleChange(e)} value={post.title} />
+                        <input id="title" placeholder="Enter your name" className="rounded-md p-2 font-normal border-2 border-palette-4" onChange={(e) => (setpost({ ...post, name: e.target.value }))} value={post.name} />
 
                     </label>
                     <label htmlFor="title" className="flex flex-col font-semibold gap-1" >
                         Address
-                        <input id="title" placeholder="Enter your Address (including city, state and country)." className="rounded-md p-2 font-normal border-2 border-palette-4" onChange={(e) => handleTitleChange(e)} value={post.title} />
+                        <input id="title" placeholder="Enter your Address (including city, state and country)." className="rounded-md p-2 font-normal border-2 border-palette-4" onChange={(e) => (setpost({ ...post, address: e.target.value }))} value={post.address} />
 
                     </label>
 
                     <label htmlFor="title" className="flex flex-col font-semibold gap-1" >
                         Current grade of study
-                        <input id="title" placeholder="Enter your current grade of study" className="rounded-md p-2 font-normal border-2 border-palette-4" onChange={(e) => handleTitleChange(e)} value={post.title} />
+                        <input id="title" placeholder="Enter your current grade of study" className="rounded-md p-2 font-normal border-2 border-palette-4" onChange={(e) => (setpost({ ...post, currentGrade: e.target.value }))} value={post.currentGrade} />
 
                     </label>
 
                     <label htmlFor="title" className="flex flex-col font-semibold gap-1" >
                         Intended field of study
-                        <input id="title" placeholder="What field do you wish to pursue?" className="rounded-md p-2 font-normal border-2 border-palette-4" onChange={(e) => handleTitleChange(e)} value={post.title} />
+                        <input id="title" placeholder="What field do you wish to pursue?" className="rounded-md p-2 font-normal border-2 border-palette-4" onChange={(e) => (setpost({ ...post, fieldOfStudy: e.target.value }))} value={post.fieldOfStudy} />
 
                     </label>
 
                     <label htmlFor="content" className="flex flex-col font-semibold gap-1" >
                         Enter your academic achievements
-                        <textarea id="content" placeholder="Put in your GPA, test scores, scholastic achievements etc. Keep it 200 words or less." className=" h-[200px] rounded-md p-2 font-normal border-2 border-palette-4" onChange={(e) => handleContentChange(e)} value={post.description} />
+                        <textarea id="content" placeholder="Put in your GPA, test scores, scholastic achievements etc. Keep it 200 words or less." className=" h-[200px] rounded-md p-2 font-normal border-2 border-palette-4" onChange={(e) => (setpost({ ...post, academicAchievements: e.target.value }))} value={post.academicAchievements} />
 
                     </label>
 
                     <label htmlFor="title" className="flex flex-col font-semibold gap-1" >
                         Yearly household income
-                        <input id="title" placeholder={`Enter your yearly houshold income, in your country's currency.`} className="rounded-md p-2 font-normal border-2 border-palette-4" onChange={(e) => handleTitleChange(e)} value={post.title} />
+                        <input id="title" placeholder={`Enter your yearly houshold income, in your country's currency.`} className="rounded-md p-2 font-normal border-2 border-palette-4" onChange={(e) => (setpost({ ...post, householdIncome: e.target.value }))} value={post.householdIncome} />
 
                     </label>
 
                     <label htmlFor="content" className="flex flex-col font-semibold gap-1" >
                         Why do you need financial aid?
-                        <textarea id="content" placeholder="Make your case here. Honor system. Keep it 200 words or less." className=" h-[200px] rounded-md p-2 font-normal border-2 border-palette-4" onChange={(e) => handleContentChange(e)} value={post.description} />
-
-                    </label>
-
-                    <label htmlFor="content" className="flex flex-col font-semibold gap-1" >
-                        Content
-                        <textarea id="content" placeholder="What is on your mind?" className=" h-[200px] rounded-md p-2 font-normal border-2 border-palette-4" onChange={(e) => handleContentChange(e)} value={post.description} />
+                        <textarea id="content" placeholder="Make your case here. Honor system. Keep it 200 words or less." className=" h-[200px] rounded-md p-2 font-normal border-2 border-palette-4" onChange={(e) => (setpost({ ...post, needFinancialAid: e.target.value }))} value={post.needFinancialAid} />
 
                     </label>
 
                     <label htmlFor="content" className="flex flex-col font-semibold gap-1" >
                         Enter additional information
-                        <textarea id="content" placeholder="This can be anything, from your hobbies, to your extracurricular activies, goals, volunteering etc. Keep it 200 words or less." className=" h-[200px] rounded-md p-2 font-normal border-2 border-palette-4" onChange={(e) => handleContentChange(e)} value={post.description} />
+                        <textarea id="content" placeholder="This can be anything, from your hobbies, to your extracurricular activies, goals, volunteering etc. Keep it 200 words or less." className=" h-[200px] rounded-md p-2 font-normal border-2 border-palette-4" onChange={(e) => (setpost({ ...post, additionalInfo: e.target.value }))} value={post.additionalInfo} />
 
                     </label>
 
                     <label htmlFor="title" className="flex flex-col font-semibold gap-1" >
                         Upload your image
-                        <input id="title" type="image" onChange={(e) => handleTitleChange(e)} value={post.title} />
+                        <FileBase64 type='file' multiple={false} onDone={({ base64 }) => { setpost({ ...post, profilePicture: base64 }) }} />
+
+                    </label>
+
+                    <label htmlFor="title" className="flex flex-col font-semibold gap-1" >
+                        Upload your transcripts
+                        <FileBase64 type='file' multiple={false} onDone={({ base64 }) => { setpost({ ...post, transcripts: base64 }) }} />
 
                     </label>
 
