@@ -15,10 +15,10 @@ const Hero = () => {
             </h2>
 
             <div className='flex gap-4'>
-                <Link href="/new" className='mt-8 rounded-xl bg-orange px-4 py-2 text-brown font-bebas font-black text-2xl hover:bg-blackish border-2 border-blackish duration-150 hover:text-white hover:text-[26px]'>
+                <Link href="/students" className='mt-8 rounded-xl bg-orange px-4 py-2 text-brown font-bebas font-black text-2xl hover:bg-blackish border-2 border-blackish duration-150 hover:text-white hover:text-[26px]'>
                     I have resources.
                 </Link>
-                <Link href="/students" className='mt-8 rounded-xl bg-orange px-4 py-2 text-brown font-bebas font-black text-2xl hover:bg-blackish border-2 border-blackish duration-150 hover:text-white hover:text-[26px]'>
+                <Link href="/new" className='mt-8 rounded-xl bg-orange px-4 py-2 text-brown font-bebas font-black text-2xl hover:bg-blackish border-2 border-blackish duration-150 hover:text-white hover:text-[26px]'>
                     I need resources.
                 </Link>
             </div>
