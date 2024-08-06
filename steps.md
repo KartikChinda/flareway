@@ -18,7 +18,13 @@
         <!-- create the prisma schema then, idhar posts ka schema chahiye, so create that schema by keeping names same -->
 
         npm install @prisma/client
+
+        npx prisma generate
         ```
+
+        2. Adding in the API route where this needs to be sent. Checking it up on prisma studio by running npx prisma studio. 
+
+3. Creating the API route, and then the frontend for displaying our students. 
 
 
 

@@ -81,8 +81,8 @@ const page = () => {
 
                     </label>
                     <label htmlFor="title" className="flex flex-col font-semibold gap-1" >
-                        Address
-                        <input id="title" placeholder="Enter your Address (including city, state and country)." className="rounded-md p-2 font-normal border-2 border-palette-4" onChange={(e) => (setpost({ ...post, address: e.target.value }))} value={post.address} />
+                        Wallet Address
+                        <input id="title" placeholder="Enter your Wallet address." className="rounded-md p-2 font-normal border-2 border-palette-4" onChange={(e) => (setpost({ ...post, address: e.target.value }))} value={post.address} />
 
                     </label>
 
