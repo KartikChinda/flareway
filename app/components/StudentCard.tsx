@@ -23,7 +23,7 @@ const StudentCard = ({ student }) => {
         }
     ]
 
-    const [selectedID, setselectedID] = useState<number>(1);
+    const [selectedID, setselectedID] = useState<number>(-1);
 
     const handleAccordianClick = (id: number) => {
         if (selectedID === id) {
@@ -31,6 +31,10 @@ const StudentCard = ({ student }) => {
         } else {
             setselectedID(id);
         }
+    }
+
+    const handleDonation = () => {
+
     }
 
 
@@ -76,8 +80,14 @@ const StudentCard = ({ student }) => {
             })}
 
 
+            <div className='w-[100%] flex justify-center items-center '>
+                <button onClick={handleDonation} className='w-[40%] bg-yellow-400 flex justify-center items-center p-2 rounded-full text-3xl font-heading text-black font-black hover:text-[32px] duration-150 hover:bg-blackish hover:text-yellow-400 border-2 hover:border-yellow-400 border-black'>
+                    Donate
+                </button>
+            </div>
 
         </div>
+
     )
 }
 
