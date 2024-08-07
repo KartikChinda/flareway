@@ -60,7 +60,7 @@ const page = () => {
     }
 
     return (
-        <div>
+        <div className="">
             <Navbar />
             <div className='m-3 p-3 w-[90%]'>
 

@@ -1,10 +1,11 @@
 "use client";
 import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
+import StudentCard from '../components/StudentCard';
 
 const page = () => {
 
-    const [students, setstudents] = useState<any[]>([])
+    const [students, setstudents] = useState([])
 
     useEffect(() => {
 
@@ -32,6 +33,21 @@ const page = () => {
                 </span>
 
             </h2>
+            <div>
+                {students ?
+                    <div>
+                        {students.map((student) => {
+                            return (
+                                <div>
+                                    <StudentCard student={student} />
+                                </div>
+                            )
+                        })}
+                    </div>
+                    :
+                    "Fetching students..."}
+            </div>
+
         </div>
     )
 }

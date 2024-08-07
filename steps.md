@@ -24,7 +24,7 @@
 
         2. Adding in the API route where this needs to be sent. Checking it up on prisma studio by running npx prisma studio. 
 
-3. Creating the API route to fetch students, and then the frontend for displaying our students. 
+3. Creating the API route to fetch students, and then the frontend for displaying our students. Frontend mei then you make a card for each student. 
 
 
 --- IF YOU DONT WANT TO ADD THE WALL, JUST ADD SOCIALS. KEEP THIS FOR THE LAST, DEPENDING ON THE TIME SAVED. 
