@@ -33,12 +33,12 @@ const page = () => {
                 </span>
 
             </h2>
-            <div>
-                {students ?
-                    <div>
+            <div className=''>
+                {students.length > 0 ?
+                    <div className='flex flex-col justify-start items-center mt-10 gap-6 '>
                         {students.map((student) => {
                             return (
-                                <div>
+                                <div className='w-full'>
                                     <StudentCard student={student} />
                                 </div>
                             )
