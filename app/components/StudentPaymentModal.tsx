@@ -26,6 +26,14 @@ const StudentPaymentModal = ({ receiverAddress, handleCloseSite }) => {
                 })
             })
 
+            console.log(response.json());
+            console.log(response.status);
+
+            if (response.status === 201) {
+                window.alert("Transaction successful!");
+                handleCloseSite();
+            }
+
         } catch (error) {
             console.error("We had some troubles making a donation", error);
         }
