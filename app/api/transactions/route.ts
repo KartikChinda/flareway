@@ -1,5 +1,4 @@
-import { Keypair, TransactionBuilder, Networks, Operation, BASE_FEE, Asset } from 'stellar-sdk';
-import StellarSDK from "stellar-sdk";
+import * as StellarSDK from "stellar-sdk";
 
 export const POST = async (req: any, res: any) => {
     // Extract data from the request
@@ -7,8 +6,9 @@ export const POST = async (req: any, res: any) => {
     console.log("Received values:", receiverAddress, amount, privateKey);
 
     // Initialize the Stellar server
-    const server = new StellarSDK.server('https://horizon-testnet.stellar.org', { allowHttp: true });
-    const donorKeypair = Keypair.fromSecret(privateKey);
+    const server = new StellarSDK.Horizon.Server('https://horizon-testnet.stellar.org');
+
+    const donorKeypair = StellarSDK.Keypair.fromSecret(privateKey);
     // console.log("Donor account:", donorKeypair);
     // Fetch the donor account from the network
     const donorAccount = await server.loadAccount(donorKeypair.publicKey());
@@ -19,14 +19,14 @@ export const POST = async (req: any, res: any) => {
 
 
         // Build the transaction
-        const transaction = new TransactionBuilder(donorAccount, {
-            fee: BASE_FEE,
-            networkPassphrase: Networks.TESTNET,
+        const transaction = new StellarSDK.TransactionBuilder(donorAccount, {
+            fee: StellarSDK.BASE_FEE,
+            networkPassphrase: StellarSDK.Networks.TESTNET,
         })
             .addOperation(
-                Operation.payment({
+                StellarSDK.Operation.payment({
                     destination: receiverAddress,
-                    asset: Asset.native(),
+                    asset: StellarSDK.Asset.native(),
                     amount: amount,
                 })
             )
