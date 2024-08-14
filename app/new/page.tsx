@@ -71,6 +71,10 @@ const page = () => {
                         This is the information that will be visible about you, so be honest, take your time to fill it out, and most importantly, be you :)
                     </span>
 
+                    <span className="mt-2 text-base">
+                        Important, our application runs on Stellar. So if you dont have an account, you can set one up <a href="https://laboratory.stellar.org/#account-creator?network=test" target="blank">here</a>.
+                    </span>
+
                 </h2>
 
                 <form id="postCreation" onSubmit={(e) => handlePostSubmit(e)} className="flex flex-col p-4 gap-10  w-[95%]  rounded-xl border-2 border-blackish text-xl mt-4 font-subtext ">
@@ -81,8 +85,8 @@ const page = () => {
 
                     </label>
                     <label htmlFor="title" className="flex flex-col font-semibold gap-1" >
-                        Wallet Address
-                        <input id="title" placeholder="Enter your Wallet address." className="rounded-md p-2 font-normal border-2 border-palette-4" onChange={(e) => (setpost({ ...post, address: e.target.value }))} value={post.address} />
+                        Stellar Wallet Public Key
+                        <input id="title" placeholder="Enter your Stellar Wallet Public key." className="rounded-md p-2 font-normal border-2 border-palette-4" onChange={(e) => (setpost({ ...post, address: e.target.value }))} value={post.address} />
 
                     </label>
 
@@ -122,7 +126,7 @@ const page = () => {
 
                     </label>
 
-                    <label htmlFor="title" className="flex flex-col font-semibold gap-1" >
+                    <label htmlFor="image" className="flex flex-col font-semibold gap-1" >
                         Upload your image
                         <FileBase64 type='file' multiple={false} onDone={({ base64 }) => { setpost({ ...post, profilePicture: base64 }) }} />
 
