@@ -3,6 +3,10 @@ import React from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+import { FaGithubSquare } from "react-icons/fa";
+import { FaSquareXTwitter } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa";
+import { TiSocialInstagram } from "react-icons/ti";
 
 const Sidebar = () => {
 
@@ -11,18 +15,18 @@ const Sidebar = () => {
     const pathName = usePathname();
 
     return (
-        <section className='sticky bg-blackish left-0 top-0 flex flex-col h-[120vh] w-fit justify-between bg-palette-2 p-6 pt-28 hidden text-palette-4  md:block md:w-[25%]'>
-            <div className='flex flex-col gap-6'>
-                {sidebarLinks.map((link) => {
+        <section className='sticky bg-blackish left-0 top-0 flex flex-col h-[120vh] w-fit justify-center items-center bg-palette-2 p-6 hidden text-palette-4  md:block md:w-[5%]'>
 
-                    return (
-                        // <Link href={link.route} key={link.label} className='flex gap-3 items-center p-4 text-white rounded-lg font-bold justify-start ' style={pathName === link.route || pathName.startsWith(`${link.route}/`) ? { backgroundImage: "linear-gradient(to right, #AD6EFB , #FFA66C)" } : { backgroundImage: "" }}>
-                        //     <Image src={link.imgUrl} alt={link.label} width={22} height={22} />
-                        <p className='hidden md:block'>{link}</p>
-                        // </Link>
-                    )
-                })}
+            <div className=' h-[100vh] text-white rounded-xl flex flex-col gap-8 text-orange justify-center items-center text-4xl group duration-150'>
+                <Link href={"https://github.com/KartikChinda/musicMonthly"} className='hover:text-5xl duration-150'> <FaGithubSquare /></Link>
+                <Link href={"https://twitter.com/ChindaKartik"} className='hover:text-5xl duration-150'> <FaSquareXTwitter /></Link>
+                <Link href={"https://www.linkedin.com/in/kartikchinda"} className='hover:text-5xl duration-150'> <FaLinkedin /></Link>
+                <Link href={"https://www.instagram.com/kartik.chinda11"} className='hover:text-5xl duration-150'> <TiSocialInstagram /></Link>
             </div>
+
+
+
+
         </section>
     )
 }
